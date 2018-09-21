@@ -1,5 +1,8 @@
 # osu-lazer-linux-installer
 
+# WARNING: This script will remove if existing and later create a folder named "osu" in your home directory.
+
+
 Dependencies are: dotnet core sdk (currently 2.1.4)
 
 Get it from https://www.microsoft.com/net/download
