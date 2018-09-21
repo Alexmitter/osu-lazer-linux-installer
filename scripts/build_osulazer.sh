@@ -2,6 +2,8 @@
 
 echo osu!lazer installer for linux
 
+echo The script will remove the osu folder in your home folder if existing
+
 sudo rm -r ~/osu
 
 mkdir ~/osu
