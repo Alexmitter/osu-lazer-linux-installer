@@ -1,4 +1,4 @@
-# osu-laser-linux-installer
+# osu-lazer-linux-installer
 
 Dependencies are: dotnet core sdk (currently 2.1.4)
 
