@@ -1,4 +1,4 @@
 #/bin/bash
 
-cd ~/osu/osu/osu.Desktop
+osu/osu.Desktop
 dotnet run
