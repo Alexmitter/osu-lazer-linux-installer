@@ -11,6 +11,6 @@ git submodule update --init
 
 
 dotnet restore
-dotnet build
+dotnet build -c Release
 
 echo DONE
