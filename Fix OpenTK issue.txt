@@ -1,0 +1,5 @@
+First you need libgbm-dev, then make a symlink from libgbm.so.1 to libgbm.so in /usr/lib
+
+Then after running dotnet run again, it will show missing "EGL", run sudo apt-get install libglfw3-dev libgles2-mesa-dev
+
+Then it will say you miss the "bass" lib. This is from osu!lazer itself, you will find libbass.so and libbass_fx.so in your /osu.Desktop/bin/Debug/netcoreapp2.1, copy them to /usr/lib
