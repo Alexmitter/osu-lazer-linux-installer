@@ -1,6 +1,6 @@
 # osu-lazer-linux-installer
 
-Info: You will run into missing dependencies Errors, mostly OpenTK Isse while running. Do the steps explained in "Fix OpenTK issue.txt"
+Info: You will run into missing dependencies Errors, mostly OpenTK Issue while running. Do the steps explained in "Fix OpenTK issue.txt"
 
 
 osu!lazer is the new in dev open source version of osu!
