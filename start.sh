@@ -7,7 +7,7 @@ OPTIONS=(1 "$RUN"
          3 "$DEPENDS")
          
 HEIGHT=15
-WIDTH=40
+WIDTH=60
 CHOICE_HEIGHT=4
 
 CHOICE=$(dialog --clear \
