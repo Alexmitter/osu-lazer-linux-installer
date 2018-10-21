@@ -1,4 +1,5 @@
-First you need libgbm-dev, then make a symlink from libgbm.so.1 to libgbm.so in /usr/lib
+First you need libgbm-dev, then make a symlink from libgbm.so.1 to libgbm.so in /usr/lib by:
+ln -s /usr/lib/libgbm.so.1 /usr/lib/libgbm.so
 
 Then after running dotnet run again, it will show missing "EGL", run sudo apt-get install libglfw3-dev libgles2-mesa-dev
 
