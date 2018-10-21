@@ -4,11 +4,13 @@
 
 OPTIONS=(1 "$RUN" 
          2 "$COMPILE" 
-         3 "$DEPENDS")
+         3 "$DEPENDS"
+         4 "$QUICKFIXES")
          
 HEIGHT=15
 WIDTH=60
 CHOICE_HEIGHT=4
+
 
 CHOICE=$(dialog --clear \
                 --backtitle "$TITLE" \
@@ -33,7 +35,7 @@ case $CHOICE in
         2)
 			if [ -d "scripts/osu" ]; then
 				cd scripts/
-				dialog --title "old osulazer found" --backtitle "Do you want to remove the old osulazer to build a new one" --yesno "Are you sure you want to permanently delete your old osu build" 7 60
+				dialog --title "old osulazer found" --backtitle "Do you want to remove the old osulazer to build a new one" --yesno "Are you sure you want to permanently delete your old osu build ( needs root) " 7 60
 				response=$?
 				case $response in
 					0) sudo rm -r osu/ && sh build_osulazer.sh;;
@@ -48,4 +50,9 @@ case $CHOICE in
         3)
             echo "Not implemented yet"
             ;;
+        4)
+			cd scripts/
+			bash quickfixes.sh
+            ;;
 esac
+
