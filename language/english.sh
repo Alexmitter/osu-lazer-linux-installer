@@ -2,8 +2,10 @@
 
 #language pack for the dialoge menu
 
-export TITLE="osulazer build and run script"
-export RUN="Run osulazer"
-export COMPILE="Clone and Compile osulazer"
-export PKG="Make a Linux Executable(not needed)"
-export CHOOSE="Choose one of the following options:"
+TITLE="osu!lazer build and run script"
+WINDOW="Menu"
+RUN="Run osu!lazer"
+COMPILE="Clone and Compile osu!lazer"
+PKG="Make a Linux Executable(not needed)"
+DEPENDS="Install Dependencies"
+CHOOSE="Choose one of the following options:"

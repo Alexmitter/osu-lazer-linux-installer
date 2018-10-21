@@ -1,6 +1,6 @@
 #/bin/bash
 
-. ./english.sh
+. ./language/english.sh
 
 OPTIONS=(1 "$RUN" 
          2 "$COMPILE" 
