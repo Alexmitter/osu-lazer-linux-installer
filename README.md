@@ -10,8 +10,6 @@ Get dotnet core sdk from https://www.microsoft.com/net/download
 
 Run "bash start.sh" to execute the tool
 
-First to install the needed Dependencies, go to "Install Dependencies".
-
 Do 1: Run Clone and Compile, then go to Install Dependencies
 
 Do 2: Dotnet 2.1 (Currently placeholder, install that manually)
