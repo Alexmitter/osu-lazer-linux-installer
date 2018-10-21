@@ -8,7 +8,7 @@ OPTIONS=(1 "$RUN"
          4 "$QUICKFIXES")
          
 HEIGHT=15
-WIDTH=60
+WIDTH=80
 CHOICE_HEIGHT=4
 
 
@@ -48,7 +48,8 @@ case $CHOICE in
 			fi            
             ;;
         3)
-            echo "Not implemented yet"
+            cd scripts/
+			bash dependencies.sh
             ;;
         4)
 			cd scripts/

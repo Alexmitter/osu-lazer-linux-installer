@@ -10,12 +10,12 @@ OPTIONS=(1 "$DELFRAMEWORKINI"
          4 "Nothing here right now")
          
 HEIGHT=15
-WIDTH=60
+WIDTH=80
 CHOICE_HEIGHT=4
 
 
 CHOICE=$(dialog --clear \
-                --backtitle "Quickfixes for common problem" \
+                --backtitle "$QUICKFIXES2" \
                 --title "$Quickfixes" \
                 --menu "$CHOOSE" \
                 $HEIGHT $WIDTH $CHOICE_HEIGHT \
