@@ -12,8 +12,12 @@ Run "bash start.sh" to execute the tool
 
 First to install the needed Dependencies, go to "Install Dependencies".
 
-Do 1: Dotnet 2.1 (Currently placeholder, install that manually)
+Do 1: Run Clone and Compile, then go to Install Dependencies
 
-Do 2: Install Common Debian/Ubuntu Dependencies that are needed by osu!lazer
+Do 2: Dotnet 2.1 (Currently placeholder, install that manually)
 
-Do 3: Install the Bass Libs from your compiled osu folder( need to run Clone and Compile first) (This is currently a placeholder, follow the tutorial in Fix OpenTK Issue.txt)
+Do 3: Install Common Debian/Ubuntu Dependencies that are needed by osu!lazer
+
+Do 4: Install the Bass Libs from your compiled osu folder( need to run Clone and Compile first) (This is currently a placeholder, follow the tutorial in Fix OpenTK Issue.txt)
+
+Have fun playing the Game. If any issue appear, write an issue.
