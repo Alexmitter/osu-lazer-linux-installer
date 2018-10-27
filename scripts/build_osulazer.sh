@@ -5,9 +5,9 @@ echo osu!lazer installer for linux
 echo This script will clone osu!lazer and build it.
 
 
-git clone https://github.com/ppy/osu.git
+git clone --recurse-submodules https://github.com/ppy/osu.git
 cd osu/
-git submodule update --init
+#git submodule update --init
 
 
 dotnet restore
