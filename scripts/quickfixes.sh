@@ -26,8 +26,8 @@ CHOICE=$(dialog --clear \
 
 case $CHOICE in
         1)
-			echo "Removing framework.ini from ~./local/share/osu"
-			rm ~./local/share/osu/framework.ini
+			echo "Removing framework.ini from ~/.local/share/osu"
+			rm ~/.local/share/osu/framework.ini
             ;;
         2)
 			echo "Not implemented yet"
