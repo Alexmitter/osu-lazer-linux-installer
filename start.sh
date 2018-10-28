@@ -41,6 +41,11 @@ case $CHOICE in
         3)
             SLANGUAGE="italiano"
             ;;
+        *)
+			echo "Error: Language not selected"
+			exit 1
+			;;
+         
 esac
 	
 	echo "$SLANGUAGE" > langsettings.txt
