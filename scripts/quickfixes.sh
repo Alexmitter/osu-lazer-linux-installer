@@ -2,12 +2,12 @@
 
 #rm ~/.local/share/osu/framework.ini
 
-. ./../language/english.sh
+. ./../language/"$GLOBLANG".sh
 
 OPTIONS=(1 "$DELFRAMEWORKINI" 
-         2 "Nothing here right now" 
-         3 "Nothing here right now"
-         4 "Nothing here right now")
+         2 "$NOTHINGHERE" 
+         3 "$NOTHINGHERE" 
+         4 "$NOTHINGHERE" )
          
 HEIGHT=15
 WIDTH=80
@@ -26,16 +26,16 @@ CHOICE=$(dialog --clear \
 
 case $CHOICE in
         1)
-			echo "Removing framework.ini from ~/.local/share/osu"
+			echo "$DELFRAMEWORKINI2"
 			rm ~/.local/share/osu/framework.ini
             ;;
         2)
-			echo "Not implemented yet"
+			echo "$NOTIMPLEMENTED"
             ;;
         3)
-            echo "Not implemented yet"
+            echo "$NOTIMPLEMENTED"
             ;;
         4)
-			 echo "Not implemented yet"
+			 echo "$NOTIMPLEMENTED"
             ;;
 esac

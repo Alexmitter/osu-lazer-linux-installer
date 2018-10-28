@@ -1,6 +1,51 @@
 #/bin/bash
 
-. ./language/english.sh
+
+
+if [ -e langsettings.txt ]; then
+	SLANGUAGE=$(<langsettings.txt)
+else
+
+
+
+HEIGHT=15
+WIDTH=40
+CHOICE_HEIGHT=4
+BACKTITLE="Backtitle here"
+TITLE="Title here"
+MENU="Choose one of the following options:"
+
+OPTIONS=(1 "English"
+         2 "Polski"
+         3 "Italiano")
+
+CHOICE=$(dialog --clear \
+                --backtitle "$BACKTITLE" \
+                --title "$TITLE" \
+                --menu "$MENU" \
+                $HEIGHT $WIDTH $CHOICE_HEIGHT \
+                "${OPTIONS[@]}" \
+                2>&1 >/dev/tty)
+
+clear
+case $CHOICE in
+        1)
+			SLANGUAGE="english"
+            ;;
+        2)
+			SLANGUAGE="polski"
+            ;;
+        3)
+            SLANGUAGE="italiano"
+            ;;
+esac
+	
+	echo "$SLANGUAGE" > langsettings.txt
+fi
+
+. ./language/"$SLANGUAGE".sh
+export GLOBLANG=$(echo "$SLANGUAGE")
+
 
 OPTIONS=(1 "$RUN" 
          2 "$COMPILE" 
@@ -22,25 +67,24 @@ CHOICE=$(dialog --clear \
 
 
 
-clear
 case $CHOICE in
         1)
 			if [ -d "scripts/osu" ]; then
 				cd scripts/
 				sh run_osulazer.sh
 			else
-				echo "No osulazer found, run build first"
+				echo "$NOOSUFOUND"
 			fi
             ;;
         2)
 			if [ -d "scripts/osu" ]; then
 				cd scripts/
-				dialog --title "old osulazer found" --backtitle "Do you want to remove the old osulazer to build a new one" --yesno "Are you sure you want to permanently delete your old osu build ( needs root) " 7 60
+				dialog --title "$OLDOSUFOUND" --backtitle "$BUILDNEWASK" --yesno "$SURETODELETE" 7 60
 				response=$?
 				case $response in
 					0) sudo rm -r osu/ && sh build_osulazer.sh;;
-					1) echo "osu not deleted.";;
-					255) echo "[ESC] key pressed.";;
+					1) echo "$OSUNOTREMOVED";;
+					255) echo "$ESCPRESSED";;
 				esac
 			else
 				cd scripts/

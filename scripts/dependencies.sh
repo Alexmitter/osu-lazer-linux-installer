@@ -1,12 +1,12 @@
 #/bin/bash
 
 
-. ./../language/english.sh
+. ./../language/"$GLOBLANG".sh
 
-OPTIONS=(1 "Dotnet 2.1(Placeholder)" 
-         2 "Common Debian/Ubuntu Dependencies needed" 
-         3 "Installing the Bass Libs from your builded osulazer(Placeholder)"
-         4 "Package for fixing multidisplay issues")
+OPTIONS=(1 "$DOTNETDL" 
+         2 "$DEBDEP" 
+         3 "$INSTALLBASSLIB"
+         4 "$MULSCREEN")
          
 HEIGHT=15
 WIDTH=80
@@ -25,19 +25,19 @@ CHOICE=$(dialog --clear \
 
 case $CHOICE in
         1)
-			echo "Not implemented yet"
+			echo "$NOTIMPLEMENTED"
             ;;
         2)
-			echo "Installing libgbm-dev libglfw3-dev libgles2-mesa-dev"
+			echo "$INSTALLPACKAGES libgbm-dev libglfw3-dev libgles2-mesa-dev"
 			sudo apt update && apt install libgbm-dev libglfw3-dev libgles2-mesa-dev
 			echo "Creating a needed Symlink"
 			sudo ln -s /usr/lib/libgbm.so.1 /usr/lib/libgbm.so
             ;;
         3)
-            echo "Not implemented yet"
+            echo "$NOTIMPLEMENTED"
             ;;
         4)
-			 echo "Installing libsdl2-dev"
+			 echo "§INSTALLPACKAGES libsdl2-dev"
 			 sudo apt update && apt install libsdl2-dev
             ;;
 esac
