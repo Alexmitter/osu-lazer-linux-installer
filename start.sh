@@ -1,6 +1,9 @@
 #/bin/bash
 
-
+if ! [ -x "$(command -v dialog)" ]; then
+  echo 'Error: dialog not installed, it is required by the tool.' >&2
+  exit 1
+fi
 
 if [ -e langsettings.txt ]; then
 	SLANGUAGE=$(<langsettings.txt)
