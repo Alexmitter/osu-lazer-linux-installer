@@ -63,3 +63,23 @@ Opcja 3: Zainstaluj wspólne zależności do dystrybucji na Debianie/Ubuntu, kt�
 Do 4: Zainstaluj biblioteki bass z folderu komiplacji osu (Tylko po wykonaniu pierwszej opcji) (To jest Placeholder, na razie zajrzyj do "Fix OpenTK Issue.txt")
 
 Baw się dobrze grając w OSU, jeśli znajdziesz jakiś problem, daj nam znać na githubie w zakładce problemów.
+
+# osu-lazer-linux-installer German
+
+osu!lazer ist die neue in dev Open-Source-Version von osu! Dieses Skript hilft Ihnen, immer den neuesten Build zu erstellen, zu warten und zu spielen, ohne Ihr bevorzugtes Betriebssystem zu belasten.
+
+Abhängigkeiten sind: dotnet core sdk (getestet mit 2.1.4), dialog, libglfw3-dev, libgles2-mesa-dev, libgbm-dev.
+
+Hol dir dotnet core sdk von https://www.microsoft.com/net/download
+
+Führen Sie "bash start.sh" aus, um das tool auszuführen.
+
+Schritt 1: Starten Sie Clone und Compile und gehen Sie dann zu Install Dependencies.
+
+Do 2: Dotnet 2.1 (Aktueller Platzhalter, diese manuell installieren)
+
+Schritt 3: Installieren Sie allgemeine Debian/Ubuntu-Abhängigkeiten, die von osu!lazer benötigt werden.
+
+Do 4: Installieren Sie die Bass Libs aus Ihrem kompilierten osu-Ordner ("Clone and Compile first" muss ausgeführt werden) (Dies ist derzeit ein Platzhalter, folgen Sie dem Tutorial in Fix OpenTK Issue.txt).
+
+Viel Spaß beim Spielen des Spiels. Wenn ein Problem auftritt, dann öffen sie ein issue.
