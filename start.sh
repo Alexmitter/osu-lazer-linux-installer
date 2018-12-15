@@ -20,7 +20,8 @@ MENU="Choose one of the following options:"
 
 OPTIONS=(1 "English"
          2 "Polski"
-         3 "Italiano")
+         3 "Italiano"
+         4 "Deutsch")
 
 CHOICE=$(dialog --clear \
                 --backtitle "$BACKTITLE" \
@@ -40,6 +41,9 @@ case $CHOICE in
             ;;
         3)
             SLANGUAGE="italiano"
+            ;;
+        4)
+            SLANGUAGE="german"
             ;;
         *)
 			echo "Error: Language not selected"
