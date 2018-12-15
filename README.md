@@ -68,7 +68,7 @@ Baw się dobrze grając w OSU, jeśli znajdziesz jakiś problem, daj nam znać n
 
 osu!lazer ist die neue frühe Open-Source-Version von osu!
 
-Dieses Skript hilft Ihnen bei der Erstellung, Wartung und Wiedergabe des neuesten Builds, ohne Ihre bevorzugte Linux-Distribution zu belasten.
+Dieses Skript hilft Ihnen bei der Erstellung, Wartung und Wiedergabe des neuesten Builds, ohne für Sie einen großen aufwand darzustellen.
 
 ## Anweisungen (für Ubuntu/Debian)
 
