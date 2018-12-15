@@ -1,16 +1,21 @@
 # osu-lazer-linux-installer ENGLISH
 
 osu!lazer is the new early development open source version of osu!
+
 This script helps you build, maintain and play on the latest build without any stress on your favorite Linux distribution.
 
 ## Instructions (for Ubuntu/Debian)
 
 - Install .NET Core SDK 2.2: https://dotnet.microsoft.com/download
-- Install dependencies: `sudo apt install git dialog libglfw3-dev libgles2-mesa-dev`
-- Clone this repository: `git clone https://github.com/Alexmitter/osu-lazer-linux-installer.git`
-- Go to the osu-lazer-linux-installer directory (`cd osu-lazer-linux-installer`) and run the script: `./start.sh`
+- Install dependencies: 
+`sudo apt install git dialog libglfw3-dev libgles2-mesa-dev`
+- Clone this repository: 
+`git clone https://github.com/Alexmitter/osu-lazer-linux-installer.git`
+- Go to the osu-lazer-linux-installer directory (`cd osu-lazer-linux-installer`) and run the script: 
+`./start.sh`
 - Choose your language and then pick the "Clone and Compile osu!lazer" option - the installation will now begin
-- After the installation is done, copy the `bass` libraries into your /usr/lib directory: `sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass.so /usr/lib && sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass_fx.so /usr/lib`
+- After the installation is done, copy the `bass` libraries into your /usr/lib directory: 
+`sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass.so /usr/lib && sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass_fx.so /usr/lib`
 - Run the script again (`./setup.sh`) and choose "Run osu!lazer" to launch the game
 - Enjoy!
 
