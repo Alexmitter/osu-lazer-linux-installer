@@ -79,7 +79,7 @@ Dieses Skript hilft Ihnen bei der Erstellung, Wartung und Wiedergabe des neueste
 `git clone https://github.com/Alexmitter/osu-lazer-linux-installer.git`
 - Gehen Sie in das Verzeichnis osu-lazer-linux-installer (`cd osu-lazer-linux-installer`) und führen Sie das Skript aus: 
 `./start.sh`
-- Wählen Sie Ihre Sprache und dann die Option "Klonen und Kompilieren osu!lazer" - dann beginn dann auch schoin die installation.
+- Wählen Sie Ihre Sprache und dann die Option "Klonen und Kompilieren osu!lazer" - dann beginn dann auch schon die installation.
 - Nachdem die Installation abgeschlossen ist, kopieren Sie die `bass` Bibliotheken in Ihr /usr/lib Verzeichnis: 
 `sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass.so /usr/lib && sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass_fx.so /usr/lib`
 - Führen Sie das Skript erneut aus (`./setup.sh`) und wählen Sie "Run osu!lazer", um das Spiel zu starten.
