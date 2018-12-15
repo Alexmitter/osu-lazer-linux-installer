@@ -64,22 +64,24 @@ Do 4: Zainstaluj biblioteki bass z folderu komiplacji osu (Tylko po wykonaniu pi
 
 Baw się dobrze grając w OSU, jeśli znajdziesz jakiś problem, daj nam znać na githubie w zakładce problemów.
 
-# osu-lazer-linux-installer German
+# osu-lazer-linux-installer GERMAN
 
-osu!lazer ist die neue in dev Open-Source-Version von osu! Dieses Skript hilft Ihnen, immer den neuesten Build zu erstellen, zu warten und zu spielen, ohne Ihr bevorzugtes Betriebssystem zu belasten.
+osu!lazer ist die neue frühe Open-Source-Version von osu!
 
-Abhängigkeiten sind: dotnet core sdk (getestet mit 2.1.4), dialog, libglfw3-dev, libgles2-mesa-dev, libgbm-dev.
+Dieses Skript hilft Ihnen bei der Erstellung, Wartung und Wiedergabe des neuesten Builds, ohne Ihre bevorzugte Linux-Distribution zu belasten.
 
-Hol dir dotnet core sdk von https://www.microsoft.com/net/download
+## Anweisungen (für Ubuntu/Debian)
 
-Führen Sie "bash start.sh" aus, um das tool auszuführen.
+- Installieren Sie das.NET Core SDK 2.2: https://dotnet.microsoft.com/download
+- Abhängigkeiten installieren: 
+`sudo apt install git dialog libglfw3-dev libgles2-mesa-dev`
+- Klonen Sie dieses Repository: 
+`git clone https://github.com/Alexmitter/osu-lazer-linux-installer.git`
+- Gehen Sie in das Verzeichnis osu-lazer-linux-installer (`cd osu-lazer-linux-installer`) und führen Sie das Skript aus: 
+`./start.sh`
+- Wählen Sie Ihre Sprache und dann die Option "Klonen und Kompilieren osu!lazer" - dann beginn dann auch schoin die installation.
+- Nachdem die Installation abgeschlossen ist, kopieren Sie die `bass` Bibliotheken in Ihr /usr/lib Verzeichnis: 
+`sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass.so /usr/lib && sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass_fx.so /usr/lib`
+- Führen Sie das Skript erneut aus (`./setup.sh`) und wählen Sie "Run osu!lazer", um das Spiel zu starten.
 
-Schritt 1: Starten Sie Clone und Compile und gehen Sie dann zu Install Dependencies.
-
-Do 2: Dotnet 2.1 (Aktueller Platzhalter, diese manuell installieren)
-
-Schritt 3: Installieren Sie allgemeine Debian/Ubuntu-Abhängigkeiten, die von osu!lazer benötigt werden.
-
-Do 4: Installieren Sie die Bass Libs aus Ihrem kompilierten osu-Ordner ("Clone and Compile first" muss ausgeführt werden) (Dies ist derzeit ein Platzhalter, folgen Sie dem Tutorial in Fix OpenTK Issue.txt).
-
-Viel Spaß beim Spielen des Spiels. Wenn ein Problem auftritt, dann öffen sie ein issue.
+Viel Spaß beim Spielen. Wenn Probleme auftreten, reichen Sie bitte ein sog. [issue](https://github.com/Alexmitter/osu-lazer-linux-installer/issues/new) ein.
