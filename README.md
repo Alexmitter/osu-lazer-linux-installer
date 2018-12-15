@@ -1,27 +1,22 @@
 # osu-lazer-linux-installer ENGLISH
 
-osu!lazer is the new in dev open source version of osu!
-this script helps you to build, maintain and play always the newest build without
-stress on your favorit OS.
+osu!lazer is the new early development open source version of osu!
+This script helps you build, maintain and play on the latest build without any stress on your favorite Linux distribution.
 
+## Instructions (for Ubuntu/Debian)
 
-Dependencies are: dotnet core sdk (tested with 2.1.4), dialog, libglfw3-dev, libgles2-mesa-dev, libgbm-dev.
+- Install .NET Core SDK 2.2: https://dotnet.microsoft.com/download
+- Install dependencies: `sudo apt install git dialog libglfw3-dev libgles2-mesa-dev`
+- Clone this repository: `git clone https://github.com/Alexmitter/osu-lazer-linux-installer.git`
+- Go to the osu-lazer-linux-installer directory (`cd osu-lazer-linux-installer`) and run the script: `./start.sh`
+- Choose your language and then pick the "Clone and Compile osu!lazer" option - the installation will now begin
+- After the installation is done, copy the `bass` libraries into your /usr/lib directory: `sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass.so /usr/lib && sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass_fx.so /usr/lib`
+- Run the script again (`./setup.sh`) and choose "Run osu!lazer" to launch the game
+- Enjoy!
 
-Get dotnet core sdk from https://www.microsoft.com/net/download
+Have fun playing the game. If any issues appear, please submit an issue.
 
-Run "bash start.sh" to execute the tool
-
-Do 1: Run Clone and Compile, then go to Install Dependencies
-
-Do 2: Dotnet 2.1 (Currently placeholder, install that manually)
-
-Do 3: Install Common Debian/Ubuntu Dependencies that are needed by osu!lazer
-
-Do 4: Install the Bass Libs from your compiled osu folder( need to run Clone and Compile first) (This is currently a placeholder, follow the tutorial in Fix OpenTK Issue.txt)
-
-Have fun playing the Game. If any issue appear, write an issue.
-
-# osu-lazer-linux-installer ITALIANO
+# osu-lazer-linux-installer ITALIANO (OUTDATED - needs a mention about .NET Core 2.2 being a requirement)
 
 osu!lazer è la nuova versione bleading-edge di osu!
 Questo script ti aiuterà a costruire, mantenere aggiornato e giocare sempre alla versione più aggiornata di Osu senza stress sulla tua distro preferita.
@@ -43,7 +38,7 @@ Passo 4: Installa le librerie Bass dalla cartella di compilazione di osu (Prima 
 
 Divertiti giocando a osu! Se dovrebbe apparire un errore o bug. Facci sapere tramite la sezioni Errori di Github.
 
-# osu-lazer-linux-installer POLSKI
+# osu-lazer-linux-installer POLSKI (OUTDATED - needs a mention about .NET Core 2.2 being a requirement)
 
 osu!lazer jest najnowsza wersja osu!
 Ten skrypt pomoże ci budować, zaktualizować i zawsze grać w najnowszą wersję Osu bez stresu na twoich ulubionych dystrybucjah linux.
