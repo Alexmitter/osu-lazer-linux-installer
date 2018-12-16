@@ -1,3 +1,12 @@
+# News
+A new Dependency Installing Process is now included, the Ubuntu 18.04 Script should be the base for porting it to other distros.
+Ports are welcome as a Pull Request, name the folder and script as i gave the example with ubuntu18.04.
+
+I tested the script on a brand new Virtual Machine and i was able to make it a one click install. No problems what so ever. But apart from that, the script is untested. If you have any issues with it, please make a issue.
+
+
+
+
 # osu-lazer-linux-installer ENGLISH
 
 osu!lazer is the new early development open source version of osu!
