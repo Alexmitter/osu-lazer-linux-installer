@@ -49,7 +49,8 @@ function BassDeps
 
 function OtherDeps
 {
-	apt install libglfw3-dev libgles2-mesa-dev -y
+	apt install libgbm-dev libglfw3-dev libgles2-mesa-dev libsdl2-dev -y
+	ln -s /usr/lib/libgbm.so.1 /usr/lib/libgbm.so
 }
 
 Dotnet
