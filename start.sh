@@ -1,5 +1,52 @@
 #/bin/bash
 
+function NewDepInstaller
+{
+	HEIGHT=15
+	WIDTH=40
+	CHOICE_HEIGHT=4
+	BACKTITLE="osu lazer installer"
+	TITLE="Depinstaller"
+	MENU="Choose one of the following options:"
+
+	OPTIONS=(1 "Ubuntu 18.04"
+         2 "Placeholder"
+         3 "Placeholder"
+         4 "Placeholder")
+
+	CHOICE=$(dialog --clear \
+                --backtitle "$BACKTITLE" \
+                --title "$TITLE" \
+                --menu "$MENU" \
+                $HEIGHT $WIDTH $CHOICE_HEIGHT \
+                "${OPTIONS[@]}" \
+                2>&1 >/dev/tty)
+
+	clear
+	case $CHOICE in
+        1)
+			cd depscripts/ubuntu18.04
+			sudo bash ubuntu18.04.sh
+            ;;
+        2)
+			echo ##Placeholder
+            ;;
+        3)
+            echo ##Placeholder
+            ;;
+        4)
+            echo ##Placeholder
+            ;;
+        *)
+			echo "Error: Distribution not selected"
+			exit 1
+			;;
+         
+	esac
+	
+	
+}
+
 if ! [ -x "$(command -v dialog)" ]; then
   echo 'Error: dialog not installed, it is required by the tool.' >&2
   exit 1
@@ -14,8 +61,8 @@ else
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=4
-BACKTITLE="Backtitle here"
-TITLE="Title here"
+BACKTITLE="osu lazer installer"
+TITLE="Language Selector"
 MENU="Choose one of the following options:"
 
 OPTIONS=(1 "English"
@@ -104,8 +151,7 @@ case $CHOICE in
 			fi            
             ;;
         3)
-            cd scripts/
-			bash dependencies.sh
+            NewDepInstaller
             ;;
         4)
 			cd scripts/
