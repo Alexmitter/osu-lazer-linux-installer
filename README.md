@@ -1,3 +1,12 @@
+# News
+A new Dependency Installing Process is now included, the Ubuntu 18.04 Script should be the base for porting it to other distros.
+Ports are welcome as a Pull Request, name the folder and script as i gave the example with ubuntu18.04.
+
+I tested the script on a brand new Virtual Machine and i was able to make it a one click install. No problems what so ever. But apart from that, the script is untested. If you have any issues with it, please make a issue.
+
+
+
+
 # osu-lazer-linux-installer ENGLISH
 
 osu!lazer is the new early development open source version of osu!
@@ -14,9 +23,6 @@ This script helps you build, maintain and play on the latest build without any s
 - Go to the osu-lazer-linux-installer directory (`cd osu-lazer-linux-installer`) and run the script: 
 `./start.sh`
 - Choose your language and then pick the "Clone and Compile osu!lazer" option - the installation will now begin
-- After the installation is done, copy the `bass` libraries into your /usr/lib directory: 
-`sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass.so /usr/lib && sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass_fx.so /usr/lib`
-- Run the script again (`./setup.sh`) and choose "Run osu!lazer" to launch the game
 - Enjoy!
 
 Have fun playing the game. If any issues appear, please submit an issue.
@@ -80,8 +86,7 @@ Dieses Skript hilft Ihnen bei der Erstellung, Wartung und Wiedergabe des neueste
 - Gehen Sie in das Verzeichnis osu-lazer-linux-installer (`cd osu-lazer-linux-installer`) und führen Sie das Skript aus: 
 `./start.sh`
 - Wählen Sie Ihre Sprache und dann die Option "Klonen und Kompilieren osu!lazer" - dann beginnt dann auch schon die Installation.
-- Nachdem die Installation abgeschlossen ist, kopieren Sie die `bass` Bibliotheken in Ihr /usr/lib Verzeichnis: 
-`sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass.so /usr/lib && sudo cp ./scripts/osu/osu.Desktop/bin/Debug/netcoreapp2.2/libbass_fx.so /usr/lib`
-- Führen Sie das Skript erneut aus (`./setup.sh`) und wählen Sie "Run osu!lazer", um das Spiel zu starten.
+
+- Führen Sie das Skript erneut aus (`./start.sh`) und wählen Sie "Run osu!lazer", um das Spiel zu starten.
 
 Viel Spaß beim Spielen. Wenn Probleme auftreten, reichen Sie bitte ein sog. [issue](https://github.com/Alexmitter/osu-lazer-linux-installer/issues/new) ein.
