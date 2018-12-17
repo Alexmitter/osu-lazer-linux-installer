@@ -10,7 +10,7 @@ function NewDepInstaller
 	MENU="Choose one of the following options:"
 
 	OPTIONS=(1 "Ubuntu 18.04"
-         2 "Placeholder"
+         2 "Ubuntu 16.04"
          3 "Placeholder"
          4 "Placeholder")
 
@@ -29,7 +29,8 @@ function NewDepInstaller
 			sudo bash ubuntu18.04.sh
             ;;
         2)
-			echo ##Placeholder
+			cd depscripts/ubuntu16.04
+			sudo bash ubuntu16.04.sh
             ;;
         3)
             echo ##Placeholder
