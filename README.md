@@ -1,4 +1,9 @@
 # News
+## 29.12.2018
+A new Stable-and-or-Daily-Build-System, for more info check out the Wiki link
+https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/Stable-and-or-Daily-Build-System
+
+
 A new Dependency Installing Process is now included, the Ubuntu 18.04 Script should be the base for porting it to other distros.
 Ports are welcome as a Pull Request, name the folder and script as i gave the example with ubuntu18.04.
 
