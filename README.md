@@ -29,4 +29,8 @@ This script helps you build, maintain and play on the latest build without any s
 
 `bash start.sh`
 
-If you run it the first time, select Install Dependencies and select your distro, the script will automaticall install everything needed.
+If you run it the first time, select Install Dependencies and select your distro, the script will automaticall install everything needed. 
+
+This is currently only supported für Ubuntu 16.04 and 18.04 and should work on all flavors of those.
+
+[If you do not run a Supported Distro](https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/If-you-do-not-run-a-Distro-supported-by-the-dependency-install-function)
