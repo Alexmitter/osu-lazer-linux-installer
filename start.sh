@@ -1,5 +1,11 @@
 #/bin/bash
 
+checkifnewversion()
+{
+	echo
+}
+
+
 function NewDepInstaller
 {
 	HEIGHT=15
@@ -56,7 +62,6 @@ fi
 if [ -e langsettings.txt ]; then
 	SLANGUAGE=$(<langsettings.txt)
 else
-
 
 
 HEIGHT=15
@@ -129,27 +134,12 @@ CHOICE=$(dialog --clear \
 
 case $CHOICE in
         1)
-			if [ -d "scripts/osu" ]; then
-				cd scripts/
-				sh run_osulazer.sh
-			else
-				echo "$NOOSUFOUND"
-			fi
+			cd scripts/
+			bash run_osulazer.sh
             ;;
         2)
-			if [ -d "scripts/osu" ]; then
-				cd scripts/
-				dialog --title "$OLDOSUFOUND" --backtitle "$BUILDNEWASK" --yesno "$SURETODELETE" 7 60
-				response=$?
-				case $response in
-					0) sudo rm -r osu/ && sh build_osulazer.sh;;
-					1) echo "$OSUNOTREMOVED";;
-					255) echo "$ESCPRESSED";;
-				esac
-			else
-				cd scripts/
-				sh build_osulazer.sh
-			fi            
+			cd scripts/
+			bash build_osulazer.sh
             ;;
         3)
             NewDepInstaller
