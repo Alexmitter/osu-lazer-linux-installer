@@ -163,6 +163,6 @@ Choose()
 	esac
 }
 
-. ./../language/"$GLOBLANG".sh #NEED TO BE FIXED, LANGUAGE VARIABLE NEED TO BE AVAIBALE GLOBALY
+. ./../language/"$GLOBLANG".sh
 echo "Run build script"
 Choose
