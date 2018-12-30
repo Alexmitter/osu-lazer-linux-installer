@@ -68,7 +68,10 @@ GetStable()
 	
 	git clone --recurse-submodules https://github.com/ppy/osu.git osu-stable
 	cd osu-stable/
-	git checkout $HASH
+	if [ -z "$HASH" ]; then
+		echo "ERROR: No Hash to checkout to"
+	fi
+	git checkout $HASH .
 	patch
 	
 	dotnet restore
@@ -79,7 +82,7 @@ ManualVersion()
 {
 	clear
 	echo "Input the commit hash of your choice"
-	read -p "Enter hash: " $HASH
+	read -p "Enter hash: " HASH
 }
 
 ChooseStable()
