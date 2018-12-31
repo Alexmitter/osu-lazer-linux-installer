@@ -82,6 +82,7 @@ ManualVersion()
 {
 	clear
 	echo "Input the commit hash of your choice"
+	echo "How to: https://www.youtube.com/watch?v=woHu_nZZH18"
 	read -p "Enter hash: " HASH
 }
 
