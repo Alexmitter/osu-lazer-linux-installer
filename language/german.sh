@@ -19,7 +19,7 @@ QUICKFIXES2="Quickfixes für häufige Probleme".
 NOOSUFOUND="Kein Osulazer gefunden, zuerst Build ausführen".
 OLDOSUFOUND="alter Osulazer gefunden".
 BUILDNEWASK="Möchtest du den alten Osulazer entfernen, um einen neuen zu bauen?"
-SURETODELETE="Bist du sicher, dass du deinen alten osu-Build dauerhaft löschen willst ("benötigt root") "
+SURETODELETE="Bist du sicher, dass du deinen alten osu-Build dauerhaft löschen willst (benötigt root) "
 OSUNOTREMOVED="osu nicht gelöscht".
 ESCPRESSED="[ESC] Taste gedrückt".
 
