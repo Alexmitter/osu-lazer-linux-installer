@@ -40,8 +40,8 @@ GetDaily()
 	cd osu-daily/
 	patch
 
-	dotnet restore
-	dotnet build -c Release
+	dotnet restore osu.sln
+	dotnet build -c Release osu.sln
 
 	echo DONE
 }
@@ -74,8 +74,8 @@ GetStable()
 	git checkout $HASH .
 	patch
 	
-	dotnet restore
-	dotnet build -c Release
+	dotnet restore osu.sln
+	dotnet build -c Release osu.sln
 }
 
 ManualVersion()
