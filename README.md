@@ -21,7 +21,7 @@ This script helps you build, maintain and play on the latest build without any s
 
 ## Easy instructions for new users
 
-`sudo apt install dialog`
+`sudo apt install dialog git`
 
 `git clone https://github.com/Alexmitter/osu-lazer-linux-installer.git`
 
