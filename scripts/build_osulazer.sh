@@ -92,10 +92,10 @@ ChooseStable()
 	WIDTH=40
 	CHOICE_HEIGHT=4
 	BACKTITLE="osu lazer installer"
-	TITLE="Choose Version"
+	TITLE="Choose Version  ---  Warning: The preset git hash can break, if it does not work, try a manual hash"
 	MENU="Choose one of the following options:"
 
-	OPTIONS=(1 "2018.1228" 2 "2018.1227" 3 "2018.1227" 4 "Manual")
+	OPTIONS=(1 "2019.814.0" 2 "Manual")
 
 	CHOICE=$(dialog --clear \
                 --backtitle "$BACKTITLE" \
@@ -108,15 +108,9 @@ ChooseStable()
 	clear
 	case $CHOICE in
         1)
-			HASH="1b35eae"
-            ;;
+			HASH=" 5825818"
+	    ;;
         2)
-			HASH="f21b784"
-            ;;
-        3)
-			HASH="c818e1c"
-            ;;
-        4)
 			ManualVersion
             ;;
         *)
