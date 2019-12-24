@@ -41,7 +41,8 @@ GetDaily()
 	patch
 
 	dotnet restore osu.sln
-	dotnet build -c Release osu.sln
+	#dotnet build -c Release osu.sln
+	dotnet build -c Release osu.Desktop
 
 	echo DONE
 }
@@ -75,7 +76,9 @@ GetStable()
 	patch
 	
 	dotnet restore osu.sln
-	dotnet build -c Release osu.sln
+	#dotnet build -c Release osu.sln
+	dotnet build -c Release osu.Desktop
+
 }
 
 ManualVersion()
