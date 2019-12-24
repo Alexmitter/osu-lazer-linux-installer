@@ -1,4 +1,9 @@
 # News
+## 24.12.2019
+Update: It took stupidly long and I am sorry for that, but the script is working again.
+Lets hope it stays this way for a long long time.
+I try to find some time to improve other issues with this project.
+
 ## 29.12.2018
 A new Stable-and-or-Daily-Build-System, for more info check out the Wiki link
 https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/Stable-and-or-Daily-Build-System
