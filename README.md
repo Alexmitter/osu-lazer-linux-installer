@@ -16,9 +16,7 @@ I tested the script on a brand new Virtual Machine and i was able to make it a o
 
 # osu!lazer install tool
 
-![](http://alexmitter.tk/pictures/1.png)
-
-[Youtube Video](https://www.youtube.com/watch?v=doMdNU4I-u4)
+[![Youtube Video](https://img.youtube.com/vi/doMdNU4I-u4.jpg)](https://www.youtube.com/watch?v=doMdNU4I-u4 "osu!lazer installer")
 
 osu!lazer is the new early development open source version of osu!
 
