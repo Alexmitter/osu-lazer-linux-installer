@@ -8,12 +8,15 @@ checkifnewversion()
 
 function NewDepInstaller
 {
-	HEIGHT=15
-	WIDTH=40
+	HEIGHT=25
+	WIDTH=95
 	CHOICE_HEIGHT=4
 	BACKTITLE="osu lazer installer"
 	TITLE="Depinstaller"
-	MENU="Choose one of the following options:"
+	MENU="Warning, this style of installing the dependencies is deprecated. 
+	I will likely remove it in a future update as it is not really maintainable due to 
+	changes from ppy regarding the wanted dotnet core version and how Microsoft handles their apt repo
+	Look on https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/Manual-Dependency-install"
 
 	OPTIONS=(1 "Ubuntu 18.04"
          2 "Ubuntu 16.04"
@@ -46,7 +49,7 @@ function NewDepInstaller
             ;;
         *)
 			echo "Error: Distribution not selected"
-			exit 1
+			bash start.sh
 			;;
          
 	esac
@@ -76,14 +79,14 @@ OPTIONS=(1 "English"
          3 "Italiano"
          4 "Deutsch")
 
-CHOICE=$(dialog --clear \
-                --backtitle "$BACKTITLE" \
-                --title "$TITLE" \
-                --menu "$MENU" \
-                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-                "${OPTIONS[@]}" \
-                2>&1 >/dev/tty)
-
+#CHOICE=$(dialog --clear \
+#                --backtitle "$BACKTITLE" \
+#                --title "$TITLE" \
+#                --menu "$MENU" \
+#                $HEIGHT $WIDTH $CHOICE_HEIGHT \
+#                "${OPTIONS[@]}" \
+#                2>&1 >/dev/tty)
+CHOICE=1;
 clear
 case $CHOICE in
         1)
