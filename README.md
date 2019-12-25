@@ -1,4 +1,8 @@
 # News
+## 25.12.2019
+Add function to quickly start the game with Wayland instead of X11.
+Add info that the automatic dependency installer is deprecated.
+
 ## 24.12.2019
 Update: It took stupidly long and I am sorry for that, but the script is working again.
 Lets hope it stays this way for a long long time.
@@ -7,12 +11,6 @@ I try to find some time to improve other issues with this project.
 ## 29.12.2018
 A new Stable-and-or-Daily-Build-System, for more info check out the Wiki link
 https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/Stable-and-or-Daily-Build-System
-
-## 16.12.2018
-A new Dependency Installing Process is now included, the Ubuntu 18.04 Script should be the base for porting it to other distros.
-Ports are welcome as a Pull Request, name the folder and script as i gave the example with ubuntu18.04.
-
-I tested the script on a brand new Virtual Machine and i was able to make it a one click install. No problems what so ever. But apart from that, the script is untested. If you have any issues with it, please make a issue.
 
 # osu!lazer install tool
 
@@ -32,8 +30,6 @@ This script helps you build, maintain and play on the latest build without any s
 
 `bash start.sh`
 
-If you run it the first time, select Install Dependencies and select your distro, the script will automaticall install everything needed. 
-
-This is currently only supported für Ubuntu 16.04 and 18.04 and should work on all flavors of those.
-
-[If you do not run a Supported Distro](https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/If-you-do-not-run-a-Distro-supported-by-the-dependency-install-function)
+Please, do not use the automatic dependency installer.
+Use the Manual Dependency Installation informatin in the Wiki
+https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/Manual-Dependency-install
