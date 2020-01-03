@@ -33,3 +33,5 @@ This script helps you build, maintain and play on the latest build without any s
 Please, do not use the automatic dependency installer.
 Use the Manual Dependency Installation informatin in the Wiki
 https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/Manual-Dependency-install
+
+Void Linux Users: https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/Void-Linux:-Dependency-Installation
