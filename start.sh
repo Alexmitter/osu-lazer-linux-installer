@@ -196,5 +196,8 @@ case $CHOICE in
 			cd scripts/
 			bash quickfixes.sh
             ;;
+		*)
+			exit 0;
+			;;
 esac
 
