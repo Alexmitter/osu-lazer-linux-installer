@@ -197,6 +197,7 @@ case $CHOICE in
 			bash quickfixes.sh
             ;;
 		*)
+			clear;
 			exit 0;
 			;;
 esac
