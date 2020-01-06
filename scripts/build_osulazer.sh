@@ -16,6 +16,7 @@ patch()
 
 GetDaily()
 {
+	clear
 	#Check if it exists, if, warn and remove if accepted
 	if [ -d "osu-daily/" ]; then
 		cd scripts/
@@ -55,6 +56,7 @@ GetDaily()
 
 GetStable()
 {
+	clear
 	#Check if it exists, if, warn and remove if accepted
 	if [ -d "osu-stable/" ]; then
 		cd scripts/
