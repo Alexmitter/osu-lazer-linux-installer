@@ -114,7 +114,7 @@ ChooseStable()
 	TITLE="Choose Version  ---  Warning: The preset git hash can break, if it does not work, try a manual hash"
 	MENU="Choose one of the following options:"
 
-	OPTIONS=(1 "2019.814.0" 2 "Manual")
+	OPTIONS=(1 "2020.104.0" 2 "Manual")
 
 	CHOICE=$(dialog --clear \
                 --backtitle "$BACKTITLE" \
@@ -127,7 +127,7 @@ ChooseStable()
 	clear
 	case $CHOICE in
         1)
-			HASH=" 5825818"
+			HASH=" 62a780a"
 	    ;;
         2)
 			ManualVersion
