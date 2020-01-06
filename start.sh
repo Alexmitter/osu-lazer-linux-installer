@@ -3,11 +3,13 @@
 checkifnewversion()
 {
 	if [ -d ".git" ]; then
-		if git checkout master && git fetch origin master && [ `git rev-list HEAD...origin/master --count` != 0 ] && git merge origin/master
-		then
-			echo 'Updated!'
-		else
-			echo 'Not updated.'
+		BRANCH="master"
+		LAST_UPDATE=`git show --no-notes --format=format:"%H" $BRANCH | head -n 1`
+		LAST_COMMIT=`git show --no-notes --format=format:"%H" origin/$BRANCH | head -n 1`
+
+		git remote update
+		if [ $LAST_COMMIT != $LAST_UPDATE ]; then			
+			echo 'Not updated'
 			HEIGHT=25
 			WIDTH=95
 			CHOICE_HEIGHT=4
@@ -40,6 +42,8 @@ checkifnewversion()
 					bash start.sh
 					;; 
 			esac
+		else
+			echo "No updates available"
 		fi
 	fi
 }
