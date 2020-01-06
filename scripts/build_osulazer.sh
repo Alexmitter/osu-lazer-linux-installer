@@ -44,7 +44,13 @@ GetDaily()
 	#dotnet build -c Release osu.sln
 	dotnet build -c Release osu.Desktop
 
-	echo DONE
+	if [ $? -ne 0 ]; then
+		echo -e "\n\n\nBUILD  Process Failed\nIf building the daily build fails,\n please report that as a issue on https://github.com/Alexmitter/osu-lazer-linux-installer";
+		read -p "Press Enter to return";
+	fi
+	
+	cd ../..
+	bash start.sh
 }
 
 GetStable()
@@ -78,6 +84,14 @@ GetStable()
 	dotnet restore osu.sln
 	#dotnet build -c Release osu.sln
 	dotnet build -c Release osu.Desktop
+	
+	if [ $? -ne 0 ]; then
+		echo -e "\n\n\nBUILD  Process Failed\nAs you selected Stable, it may that the build hash you selected may be too old to work\nPlease try the daily build,\nif it also fails, please report it on https://github.com/Alexmitter/osu-lazer-linux-installer";
+		read -p "Press Enter to return";
+	fi
+	
+	cd ../..
+	bash start.sh
 
 }
 
