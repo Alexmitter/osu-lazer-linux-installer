@@ -2,7 +2,46 @@
 
 checkifnewversion()
 {
-	echo
+	if [ -d ".git" ]; then
+		if git checkout master && git fetch origin master && [ `git rev-list HEAD...origin/master --count` != 0 ] && git merge origin/master
+		then
+			echo 'Updated!'
+		else
+			echo 'Not updated.'
+			HEIGHT=25
+			WIDTH=95
+			CHOICE_HEIGHT=4
+			BACKTITLE="Update Available"
+			TITLE="Update Available"
+			MENU="A newer commit is available, would you like to update to it?"
+
+			OPTIONS=(1 "Yes"
+				2 "No")
+
+			CHOICE=$(dialog --clear \
+					--backtitle "$BACKTITLE" \
+					--title "$TITLE" \
+					--menu "$MENU" \
+					$HEIGHT $WIDTH $CHOICE_HEIGHT \
+					"${OPTIONS[@]}" \
+					2>&1 >/dev/tty)
+
+			clear
+			case $CHOICE in
+				1)
+					git pull
+					bash start.sh
+					;;
+				2)
+					echo "Update skipped";
+					;;
+				*)
+					echo "Error"
+					bash start.sh
+					;; 
+			esac
+		fi
+	fi
 }
 
 
@@ -61,6 +100,8 @@ if ! [ -x "$(command -v dialog)" ]; then
   echo 'Error: dialog not installed, it is required by the tool.' >&2
   exit 1
 fi
+
+checkifnewversion
 
 if [ -e langsettings.txt ]; then
 	SLANGUAGE=$(<langsettings.txt)
