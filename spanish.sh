@@ -30,5 +30,6 @@ INSTALLBASSLIB="Instalando las Bass Libs de su compilación de Osu!lazer(Placeho
 MULSCREEN="Paquete para solucionar problemas de multiples pantallas"
 
 #Quickfixes.sh
+NOTHINGHERE="No hay nada aqui ahora"
 DELFRAMEWORKINI="Eliminar framework.ini, la reparación no inicia"
 DELFRAMEWORKINI2="Eliminando framework.ini desde ~/.local/share/osu"
