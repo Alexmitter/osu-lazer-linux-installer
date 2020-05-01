@@ -121,17 +121,17 @@ dialog --stdout --title "English is the officially supported language!" \
 		dialog --msgbox "You can always reset your choice by deleting the created langsettings.txt file" 10 45
 	else
 		HEIGHT=15
-		WIDTH=40
-		CHOICE_HEIGHT=4
+		WIDTH=50
+		CHOICE_HEIGHT=5
 		BACKTITLE="osu lazer installer"
 		TITLE="Language Selector"
 		MENU="Choose one of the following options:"
 	
-		OPTIONS=(1 "Spanish"
+		OPTIONS=(	1 "English"
 				2 "Polski"
 				3 "Italiano"
 				4 "Deutsch"
-				5 "English")
+				5 "Spanish")
 		
 		CHOICE=$(dialog --clear \
 						--backtitle "$BACKTITLE" \
