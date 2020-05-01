@@ -112,47 +112,58 @@ if [ -e langsettings.txt ]; then
 else
 
 
-HEIGHT=15
-WIDTH=40
-CHOICE_HEIGHT=4
-BACKTITLE="osu lazer installer"
-TITLE="Language Selector"
-MENU="Choose one of the following options:"
+dialog --stdout --title "English is the officially supported language!" \
+  --backtitle "Language" \
+  --yesno "Yes: Use English, No:  Select one of the community created language packs!" 15 60
 
-OPTIONS=(1 "English"
-         2 "Polski"
-         3 "Italiano"
-         4 "Deutsch")
-
-#CHOICE=$(dialog --clear \
-#                --backtitle "$BACKTITLE" \
-#                --title "$TITLE" \
-#                --menu "$MENU" \
-#                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-#                "${OPTIONS[@]}" \
-#                2>&1 >/dev/tty)
-CHOICE=1;
-clear
-case $CHOICE in
-        1)
-			SLANGUAGE="english"
-            ;;
-        2)
-			SLANGUAGE="polski"
-            ;;
-        3)
-            SLANGUAGE="italiano"
-            ;;
-        4)
-            SLANGUAGE="german"
-            ;;
-        *)
-			echo "Error: Language not selected"
-			exit 1
-			;;
-         
-esac
+	if [ "$?" -eq 0 ]; then
+		SLANGUAGE="english"
+		dialog --msgbox "You can always reset your choice by deleting the created langsettings.txt file" 10 45
+	else
+		HEIGHT=15
+		WIDTH=40
+		CHOICE_HEIGHT=4
+		BACKTITLE="osu lazer installer"
+		TITLE="Language Selector"
+		MENU="Choose one of the following options:"
 	
+		OPTIONS=(1 "Spanish"
+				2 "Polski"
+				3 "Italiano"
+				4 "Deutsch"
+				5 "English")
+		
+		CHOICE=$(dialog --clear \
+						--backtitle "$BACKTITLE" \
+						--title "$TITLE" \
+						--menu "$MENU" \
+						$HEIGHT $WIDTH $CHOICE_HEIGHT \
+						"${OPTIONS[@]}" \
+						2>&1 >/dev/tty)
+		clear
+		case $CHOICE in
+				1)
+					SLANGUAGE="english"
+					;;
+				2)
+					SLANGUAGE="polski"
+					;;
+				3)
+					SLANGUAGE="italiano"
+					;;
+				4)
+					SLANGUAGE="german"
+					;;
+				5)
+					SLANGUAGE="spanish"
+					;;
+				*)
+					echo "Error: Language not selected"
+					exit 1
+					;;
+				
+		esac
+	fi 
 	echo "$SLANGUAGE" > langsettings.txt
 fi
 
