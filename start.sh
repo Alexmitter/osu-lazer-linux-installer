@@ -105,6 +105,11 @@ if ! [ -x "$(command -v dialog)" ]; then
   exit 1
 fi
 
+case "$(openssl version)" in
+    LibreSSL*) export CLR_OPENSSL_VERSION_OVERRIDE=47;;
+    *);;
+esac
+
 checkifnewversion
 
 if [ -e langsettings.txt ]; then
