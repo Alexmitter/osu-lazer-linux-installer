@@ -23,12 +23,6 @@ SURETODELETE="Are you sure you want to permanently delete your old osu build ( n
 OSUNOTREMOVED="osu not deleted"
 ESCPRESSED="[ESC] key pressed"
 
-#dependences.sh
-DOTNETDL="Dotnet 2.1(Placeholder)"
-DEBDEP="Common Debian/Ubuntu Dependencies needed"
-INSTALLBASSLIB="Installing the Bass Libs from your builded osu!lazer(Placeholder)"
-MULSCREEN="Package for fixing multidisplay issues"
-
 #Quickfixes.sh
 NOTHINGHERE="Nothing here right now"
 DELFRAMEWORKINI="Remove framework.ini, fixing not starting"
