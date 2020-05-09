@@ -58,6 +58,10 @@ appimage_run()
 			done < <( ls -1 appimages/ | grep ".AppImage")
 		FILE=$(dialog --title "List file of directory /home" --menu "Chose one" 24 80 17 "${W[@]}" 3>&2 2>&1 1>&3)
 		clear
+		if [[ $FILE == "" ]]; then
+		main_menu
+		fi
+		
 		if [ $? -eq 0 ]; then # Exit with OK
 			path=$(ls -1 appimages/ | grep ".AppImage" | sed -n "`echo "$FILE p" | sed 's/ //'`")
 			path2=$(echo "appimages/$path")
@@ -108,7 +112,7 @@ download_latest_appimage()
 	build_tag=$(curl -s https://api.github.com/repos/ppy/osu/releases/latest | grep /osu.AppImage | cut -d : -f 2,3 | tr -d \" | grep -v zsync | cut -d '/' -f 8)
 	if [[ $(cat appimages/latest.txt) == "osu-$build_tag.AppImage" ]]; then
 		dialog --msgbox "$APPIMG_NEWEST_ALREADY_DOWNLOADED" 10 45
-		exit 0
+		main_menu
 	fi
 	if [ ! -d appimages/ ]; then
 	mkdir appimages/
