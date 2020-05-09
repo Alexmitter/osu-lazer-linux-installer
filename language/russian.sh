@@ -23,13 +23,18 @@ SURETODELETE="Вы действительно хотите навсегда уд
 OSUNOTREMOVED="не удалось удалить osu"
 ESCPRESSED="Нажата клавиша [ESC]"
 
-#dependences.sh
-DOTNETDL="Dotnet 2.1(Заглушка)"
-DEBDEP="Необходимые зависимости под Debian/Ubuntu"
-INSTALLBASSLIB="Устанавливаются библиотеки Bass из собранного osulazer(Заглушка)"
-MULSCREEN="Пакет исправлений для систем с несколькими экранами"
-
 #Quickfixes.sh
 NOTHINGHERE="Здесь ничего нет"
 DELFRAMEWORKINI="Удалить framework.ini, процесс исправления не запускается"
 DELFRAMEWORKINI2="Удаление framework.ini из ~/.local/share/osu"
+
+#AppImage Support
+APPIMG_DOWNLOAD_DIALOG="Загрузить osu!lazer AppImage"
+APPIMG_NEWEST_ALREADY_DOWNLOADED="Самая актуальная версия уже загружена"
+APPIMG_GITHUB_API_LIMIT="Превышен лимит запросов к Github API, подождите несколько минут"
+APPIMG_ALREADY_DOWNLOADED="Эта версия уже загружена"
+APPIMG_UPDATE_AVAILABLE="Доступен новый образ AppImage, перейдите в AppImage/Download для обновления"
+APPIMG_CHROOT_1="osu!lazer AppImage должен быть задан как исполняемый"
+APPIMG_CHROOT_2="В этой директории будет выполнена команда sudo chmod +x $path2, если вы не доверяете скрипту - сделайте это сами"
+APPIMG_CHROOT_3="Нажмите Enter чтобы продолжить"
+APPIMG_CHROOT_ERROR="Ошибка: AppImage не является исполняемым"
