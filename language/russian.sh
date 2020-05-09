@@ -23,12 +23,6 @@ SURETODELETE="Вы действительно хотите навсегда уд
 OSUNOTREMOVED="не удалось удалить osu"
 ESCPRESSED="Нажата клавиша [ESC]"
 
-#dependences.sh
-DOTNETDL="Dotnet 2.1(Заглушка)"
-DEBDEP="Необходимые зависимости под Debian/Ubuntu"
-INSTALLBASSLIB="Устанавливаются библиотеки Bass из собранного osulazer(Заглушка)"
-MULSCREEN="Пакет исправлений для систем с несколькими экранами"
-
 #Quickfixes.sh
 NOTHINGHERE="Здесь ничего нет"
 DELFRAMEWORKINI="Удалить framework.ini, процесс исправления не запускается"
