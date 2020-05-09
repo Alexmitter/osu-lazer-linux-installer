@@ -48,56 +48,132 @@ checkifnewversion()
 	fi
 }
 
-
-function NewDepInstaller
+appimage_run()
 {
-	HEIGHT=25
-	WIDTH=95
-	CHOICE_HEIGHT=4
-	BACKTITLE="osu lazer installer"
-	TITLE="Depinstaller"
-	MENU="Warning, this style of installing the dependencies is deprecated. 
-	I will likely remove it in a future update as it is not really maintainable due to 
-	changes from ppy regarding the wanted dotnet core version and how Microsoft handles their apt repo
-	Look on https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/Manual-Dependency-install"
+		let i=0
+		W=() 
+		while read -r line; do
+			let i=$i+1
+			W+=($i "$line")
+			done < <( ls -1 appimages/ | grep ".AppImage")
+		FILE=$(dialog --title "List file of directory /home" --menu "Chose one" 24 80 17 "${W[@]}" 3>&2 2>&1 1>&3)
+		clear
+		if [ $? -eq 0 ]; then # Exit with OK
+			path=$(ls -1 appimages/ | grep ".AppImage" | sed -n "`echo "$FILE p" | sed 's/ //'`")
+			path2=$(echo "appimages/$path")
+		fi
+		if [[ -x "$path2" ]]
+		then
+			$path2 &
+		else
+			clear
+			echo "$APPIMG_CHROOT_1"
+			echo "$APPIMG_CHROOT_2"
+			read -p "$APPIMG_CHROOT_3"
+			sudo chmod +x $path2
+			if [[ -x "$path2" ]]; then
+				$path2 &
+			else
+				clear
+				echo "$APPIMG_CHROOT_ERROR"
+				exit 0
+			fi
+		fi
+		
+		exit 0
+}
 
-	OPTIONS=(1 "Ubuntu 18.04"
-         2 "Ubuntu 16.04"
-         3 "Placeholder"
-         4 "Placeholder")
+check_for_appimage_update()
+{
+	#check if rate limit is exeded
+	if [[ $(curl -s https://api.github.com/repos/ppy/osu/releases/latest | grep "API rate limit exceeded")  ]];then
+		dialog --msgbox "$APPIMG_GITHUB_API_LIMIT" 10 45
+		main_menu
+	fi
+	build_tag=$(curl -s https://api.github.com/repos/ppy/osu/releases/latest | grep /osu.AppImage | cut -d : -f 2,3 | tr -d \" | grep -v zsync | cut -d '/' -f 8)
+	if [[ "osu-$build_tag.AppImage" != $(cat appimages/latest.txt) ]]; then
+		dialog --msgbox "$APPIMG_UPDATE_AVAILABLE" 10 45
+	fi 
+}
 
-	CHOICE=$(dialog --clear \
-                --backtitle "$BACKTITLE" \
+
+download_latest_appimage()
+{
+	#check if rate limit is exeded
+	if [[ $(curl -s https://api.github.com/repos/ppy/osu/releases/latest | grep "API rate limit exceeded")  ]];then
+		dialog --msgbox "$APPIMG_GITHUB_API_LIMIT" 10 45
+		exit 0
+	fi
+	new_url_link=$(curl -s https://api.github.com/repos/ppy/osu/releases/latest | grep /osu.AppImage | cut -d : -f 2,3 | tr -d \" | grep -v zsync)
+	build_tag=$(curl -s https://api.github.com/repos/ppy/osu/releases/latest | grep /osu.AppImage | cut -d : -f 2,3 | tr -d \" | grep -v zsync | cut -d '/' -f 8)
+	if [[ $(cat appimages/latest.txt) == "osu-$build_tag.AppImage" ]]; then
+		dialog --msgbox "$APPIMG_NEWEST_ALREADY_DOWNLOADED" 10 45
+		exit 0
+	fi
+	if [ ! -d appimages/ ]; then
+	mkdir appimages/
+	fi
+	if [[ -f "appimages/osu-$build_tag.AppImage" ]]; then
+		dialog --msgbox "$APPIMG_ALREADY_DOWNLOADED" 10 45
+		main_menu
+	fi
+	wget $new_url_link -O "appimages/osu-$build_tag.AppImage" 2>&1 | stdbuf -o0 awk '/[.] +[0-9][0-9]?[0-9]?%/ { print substr($0,63,3) }' | dialog --gauge "$APPIMG_DOWNLOAD_DIALOG" 10 100
+	if [[ $? == 0 ]]; then
+		echo "osu-$build_tag.AppImage" > appimages/latest.txt
+	fi
+	main_menu
+}
+
+main_menu()
+{
+	
+OPTIONS=(1 "AppImage/Download"
+	     2 "AppImage/Run"
+         3 "Build/$RUN" 
+         4 "Build/$COMPILE" 
+         5 "$QUICKFIXES")
+         
+HEIGHT=20
+WIDTH=80
+CHOICE_HEIGHT=6
+
+
+CHOICE=$(dialog --clear \
+                --backtitle "$TITLE" \
                 --title "$TITLE" \
-                --menu "$MENU" \
+                --menu "$CHOOSE" \
                 $HEIGHT $WIDTH $CHOICE_HEIGHT \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
-	clear
-	case $CHOICE in
+
+
+case $CHOICE in
         1)
-			cd depscripts/ubuntu18.04
-			sudo bash ubuntu18.04.sh
+			download_latest_appimage
             ;;
         2)
-			cd depscripts/ubuntu16.04
-			sudo bash ubuntu16.04.sh
+			appimage_run
             ;;
         3)
-            echo ##Placeholder
+			cd scripts/
+			bash run_osulazer.sh
             ;;
         4)
-            echo ##Placeholder
+			cd scripts/
+			bash build_osulazer.sh
             ;;
-        *)
-			echo "Error: Distribution not selected"
-			bash start.sh
+        5)
+			cd scripts/
+			bash quickfixes.sh
+            ;;
+		*)
+			clear;
+			exit 0;
 			;;
-         
-	esac
-	
-	
+esac
+
+
 }
 
 if ! [ -x "$(command -v dialog)" ]; then
@@ -116,6 +192,7 @@ if [ -e langsettings.txt ]; then
 	SLANGUAGE=$(<langsettings.txt)
 else
 
+. ./language/english.sh #First load English language pack, so variables that are not yet translated will at least be english instead of empty
 
 dialog --stdout --title "English is the officially supported language!" \
   --backtitle "Language" \
@@ -175,46 +252,6 @@ fi
 . ./language/"$SLANGUAGE".sh
 export GLOBLANG=$(echo "$SLANGUAGE")
 
+check_for_appimage_update #Check for AppImage Updates on run
 
-OPTIONS=(1 "$RUN" 
-         2 "$COMPILE" 
-         3 "$DEPENDS"
-         4 "$QUICKFIXES")
-         
-HEIGHT=15
-WIDTH=80
-CHOICE_HEIGHT=4
-
-
-CHOICE=$(dialog --clear \
-                --backtitle "$TITLE" \
-                --title "$TITLE" \
-                --menu "$CHOOSE" \
-                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-                "${OPTIONS[@]}" \
-                2>&1 >/dev/tty)
-
-
-
-case $CHOICE in
-        1)
-			cd scripts/
-			bash run_osulazer.sh
-            ;;
-        2)
-			cd scripts/
-			bash build_osulazer.sh
-            ;;
-        3)
-            NewDepInstaller
-            ;;
-        4)
-			cd scripts/
-			bash quickfixes.sh
-            ;;
-		*)
-			clear;
-			exit 0;
-			;;
-esac
-
+main_menu
