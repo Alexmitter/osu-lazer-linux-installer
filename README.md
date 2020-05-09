@@ -1,4 +1,10 @@
 # News
+
+## 9.5.2020
+AppImage Support
+Since PPY now regularly releases builds on github in the AppImage format, I added support for downloading and managing those.
+AppImages get stored in the appimages/ folder so you can easily switch between current and older builds in case of something going wrong with linux support in PPY's builds.
+
 ## 25.12.2019
 Add function to quickly start the game with Wayland instead of X11.
 Add info that the automatic dependency installer is deprecated.
