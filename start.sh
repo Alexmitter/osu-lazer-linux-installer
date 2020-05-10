@@ -68,18 +68,31 @@ appimage_run()
 		fi
 		if [[ -x "$path2" ]]
 		then
-			$path2 &
+			if [[ $WAYLAND == "YES" ]]; then
+				echo "RUN osu!lazer with wayland, here may be dragons"
+				SDL_VIDEODRIVER=wayland $path2 &
+			else
+				echo "RUN osu!lazer with x11"
+				$path2 &
+			fi
 		else
 			clear
-			echo "$APPIMG_CHROOT_1"
-			echo "$APPIMG_CHROOT_2"
-			read -p "$APPIMG_CHROOT_3"
+			echo "$APPIMG_CHMOD_1"
+			echo "$APPIMG_CHMOD_2"
+			read -p "$APPIMG_CHMOD_3"
 			sudo chmod +x $path2
 			if [[ -x "$path2" ]]; then
-				$path2 &
+				echo "$APPIMG_STARTING"
+				if [[ $WAYLAND == "YES" ]]; then
+				echo "RUN osu!lazer with wayland, here may be dragons"
+				#SDL_VIDEODRIVER=wayland $path2 &
+				else
+				echo "RUN osu!lazer with x11"
+				#$path2 &
+				fi
 			else
 				clear
-				echo "$APPIMG_CHROOT_ERROR"
+				echo "$APPIMG_CHMOD_ERROR"
 				exit 0
 			fi
 		fi
@@ -130,12 +143,20 @@ download_latest_appimage()
 
 main_menu()
 {
-	
+if [[ $XDG_SESSION_TYPE != "wayland" ]]; then
 OPTIONS=(1 "AppImage/Download"
 	     2 "AppImage/Run"
          3 "Build/$RUN" 
          4 "Build/$COMPILE" 
          5 "$QUICKFIXES")
+else
+OPTIONS=(1 "AppImage/Download"
+	     2 "AppImage/Run"
+         3 "Build/$RUN" 
+         4 "Build/$COMPILE" 
+         5 "$QUICKFIXES"
+         6 "Wayland=$WAYLAND")
+fi
          
 HEIGHT=20
 WIDTH=80
@@ -171,6 +192,14 @@ case $CHOICE in
 			cd scripts/
 			bash quickfixes.sh
             ;;
+        6)
+			if [[ $WAYLAND == "YES" ]]; then
+				WAYLAND="NO"
+			else
+				WAYLAND="YES"
+			fi
+			main_menu
+            ;;
 		*)
 			clear;
 			exit 0;
@@ -179,6 +208,13 @@ esac
 
 
 }
+
+if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+	WAYLAND="NO" #Currently defaulting to NO as osu!lazer still has issues with wayland enabled
+else
+	WAYLAND"NO"
+fi
+
 
 if ! [ -x "$(command -v dialog)" ]; then
   echo 'Error: dialog not installed, it is required by the tool.' >&2
