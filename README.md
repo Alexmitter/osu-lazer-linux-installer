@@ -36,6 +36,7 @@ This script helps you build, maintain and play on the latest build without any s
 
 `bash start.sh`
 
+Dependencies are only needed if you plan to compile osu!lazer with this tool, you can ignore if you plan to use the AppImages functionality only.
 Please, do not use the automatic dependency installer.
 Use the Manual Dependency Installation informatin in the Wiki
 https://github.com/Alexmitter/osu-lazer-linux-installer/wiki/Manual-Dependency-install
