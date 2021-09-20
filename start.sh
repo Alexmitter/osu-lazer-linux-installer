@@ -212,7 +212,7 @@ esac
 if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
 	WAYLAND="NO" #Currently defaulting to NO as osu!lazer still has issues with wayland enabled
 else
-	WAYLAND"NO"
+	WAYLAND="NO"
 fi
 
 
